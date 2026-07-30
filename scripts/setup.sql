@@ -134,6 +134,3 @@ select * from customers limit 10;
 select * from products limit 10;
 -- Preview sale orders for products purchsaed online by various customers
 select * from orders limit 10;
-
--- Successful completeion message
-select 'Congratulations! Snowflake Data Engineering workshop setup has completed successfully!' as status;
