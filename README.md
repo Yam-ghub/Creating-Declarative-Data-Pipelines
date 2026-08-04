@@ -156,7 +156,49 @@ select * from products limit 10;
 -- Preview sale orders for products purchsaed online by various customers
 select * from orders limit 10;
 ```
-### 2. Setting up the SQL file and creating the fact dynamic table
+### 2. Creating the orders and customers dynamic tables
+```sql
+--Exploring the Customers Table
+use role accountadmin;
+use warehouse compute_wh;
+use database analytics_db;
+desc table raw_db.public.customers;
+select * from raw_db.public.customers;
+
+--Create the Customers Dynamic Table
+create or replace dynamic table stg_customers_dt
+    target_lag=downstream
+    warehouse=compute_wh
+    as select
+        custid as customer_id,
+        cname as customer_name,
+        cast(spendlimit as float) as spend_limit
+    from raw_db.public.customers;
+
+--Explore the Orders Table
+desc table raw_db.public.orders;
+select * from raw_db.public.orders;
+
+--Create the Orders Dynamic Table
+create or replace dynamic table stg_orders_dt
+   target_lag=downstream
+   warehouse=compute_wh
+   as select
+       custid as customer_id,
+       purchase:"prodid"::number(5) as product_id,
+       purchase:"purchase_amount"::float(10) as order_price,
+       purchase:"quantity"::number(5) as quantity,
+       purchase:"purchase_date"::date as order_date
+   from raw_db.public.orders;
+
+-- Verify the Dynamic Tables
+select * from analytics_db.public.stg_customers_dt;
+select * from analytics_db.public.stg_orders_dt;
+
+--View all Dynamic Tables and check the TARGET_LAG
+show dynamic tables;
+```
+### 3. Setting up the SQL file and chaining the orders and customer dynamic table.
 ```sql
 --Set Up Your SQL File
 use role accountadmin;
@@ -182,3 +224,14 @@ create or replace dynamic table fct_customer_orders_dt
 
 select * from analytics_db.public.fct_customer_orders_dt;
 ```
+### 4. Setting auto refresh(orchastration) of the pipeline
+```sql
+use role accountadmin;
+use warehouse compute_wh;
+use database analytics_db;
+show dynamic tables;
+
+--Adjust Refresh Frequency
+alter dynamic table stg_orders_dt set target_lag = '5 minutes';
+```
+###
