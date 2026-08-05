@@ -1,5 +1,5 @@
 ## Project Overview
-**Project Title**: Creating Declarative Data Pipelines in Snowflake
+**Project Title**: Creating Declarative Data Pipelines in Snowflake ❄️
 
 **Database**: `Analytics_DB`
 
