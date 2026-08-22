@@ -1,5 +1,5 @@
 ## Project Overview
-**Project Title**: Automated ELT Pipeline with dbt, Airflow, and Snowflake
+###**Project Title**: Automated ELT Pipeline with dbt, Airflow, and Snowflake
 
 **Database**: `dbt_db`
 
