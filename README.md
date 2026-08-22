@@ -19,11 +19,11 @@ This project simulates a real-world analytics engineering workflow:
 | Data Warehouse | [Snowflake](https://www.snowflake.com/) |
 | Transformation | [dbt Core](https://www.getdbt.com/) (`dbt-snowflake`) |
 | Orchestration | [Apache Airflow](https://airflow.apache.org/) |
-| dbt ↔ Airflow bridge | [Astronomer Cosmos](https://astronomer.github.io/astronomer-cosmos/) |
+| dbt ↔ Airflow bridge | [Astronomer Cosmos](https://github.com/astronomer/astronomer-cosmos/) |
 | Local dev environment | [Astro CLI](https://www.astronomer.io/docs/astro/cli/overview) |
-| Sample dataset | TPC-H benchmark data (orders, line items, customers, parts) |
+| Sample dataset | TPC-H benchmark data 
 
-<img src="https://github.com/Yam-ghub/dbt_project/blob/main/img/image.jpg" alt="Pipeline Architecture" width="1200">
+<img src="https://github.com/Yam-ghub/dbt_project/blob/main/img/image.jpg" alt="Airflow" width="1200">
 
 
 
