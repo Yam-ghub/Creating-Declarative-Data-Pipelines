@@ -4,6 +4,7 @@
 **Database**: `dbt_db`
 **Warehouse**: `dbt_wh`
 **Schema**: `dbt_schema`
+
 ➤ Airflow UI: http://localhost:8080
 ➤ Postgres Database: postgresql://localhost:17503/postgres
 
