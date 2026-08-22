@@ -2,7 +2,9 @@
 **Project Title**: Automated ELT Pipeline with dbt, Airflow, and Snowflake
 
 **Database**: `dbt_db`
+
 **Warehouse**: `dbt_wh`
+
 **Schema**: `dbt_schema`
 
 ➤ Airflow UI: http://localhost:8080
