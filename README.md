@@ -12,7 +12,23 @@ This project simulates a real-world analytics engineering workflow:
 - **Orchestrate**: Apache Airflow, via the Cosmos provider, turns the dbt DAG into native Airflow tasks and runs the full pipeline automatically on a recurring schedule
 - **Test & Validate**: dbt's built-in and custom generic tests (`unique`, `not_null`, `relationships`, `accepted_values`) guard data quality at each layer
 
-## ⚙️ Tech Stack
+## Architecture
+
+```
+┌─────────────┐      ┌─────────────────────────────┐      ┌──────────────┐
+│   Raw TPC-H │ ───▶ │           dbt models         │ ───▶ │   Snowflake  │
+│   seed data │      │  staging → intermediate →    │      │  (analytics- │
+└─────────────┘      │           marts              │      │  ready data) │
+                      └──────────────┬───────────────┘      └──────────────┘
+                                     │
+                      ┌──────────────▼───────────────┐
+                      │   Apache Airflow + Cosmos     │
+                      │  (schedules & orchestrates    │
+                      │   the dbt DAG every 30 min)   │
+                      └────────────────────────────────┘
+```
+
+## Tech Stack
 
 | Layer | Tool |
 |---|---|
