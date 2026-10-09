@@ -258,3 +258,6 @@ create or replace dynamic table fct_customer_orders_dt
 
 select * from analytics_db.public.fct_customer_orders_dt;
 ```
+
+Badge gain
+<img src="img/badge(declarative).png" alt="Pipeline Architecture" width="300">
