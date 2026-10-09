@@ -258,6 +258,7 @@ create or replace dynamic table fct_customer_orders_dt
 
 select * from analytics_db.public.fct_customer_orders_dt;
 ```
-
-Badge gain
-<img src="img/badge(declarative).png" alt="Pipeline Architecture" width="300">
+Credits to Snowflake Training
+Badge
+<img src="img/badge(declarative).png" alt="badge" width="300">
+[**badge link**](https://developerbadges.snowflake.com/57c976da-a564-4339-9f9e-b98f60bfd8bb#acc.FPMC4KiA)
