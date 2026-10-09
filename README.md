@@ -259,4 +259,5 @@ create or replace dynamic table fct_customer_orders_dt
 select * from analytics_db.public.fct_customer_orders_dt;
 ```
 Credits to Snowflake:
-[**Digital Badge**](https://developerbadges.snowflake.com/57c976da-a564-4339-9f9e-b98f60bfd8bb#acc.FPMC4KiA)
+
+[**Creating Declarative Data Pipelines with Dynamic Tables Badge**](https://developerbadges.snowflake.com/57c976da-a564-4339-9f9e-b98f60bfd8bb#acc.FPMC4KiA)
